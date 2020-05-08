@@ -250,7 +250,7 @@ export default {
 }
 .dataAdder {
 	width: 690rpx;
-	padding: 30rpx;
+	padding: 30rpx 30rpx 0;
 	background-color: #FFFFFF;
 	.dataUser {
 		display: flex;
@@ -305,6 +305,7 @@ export default {
 		margin-right: 24rpx;
 	}
 	.left {
+		width: 505rpx;
 		text {
 			display: block;
 			text-overflow: ellipsis;

@@ -96,7 +96,19 @@
 							let totalPage = res.data.data.total
 							if(page.num == 1) this.findList = []; 
 							this.findList = this.findList.concat(curPageData);
-							console.log(this.findList)
+							for (let i = 0; i < this.findList.length; i++) {
+								console.log(this.findList[i].like)
+								let likeNum = this.findList[i].like
+								if(likeNum.toString().length >= 4){
+									// let likeN = Math
+									let likeN = (likeNum/10000).toFixed(1)
+									// console.log(likeN)
+									this.findList[i].like = likeN+'W'
+								}else{
+									this.findList[i].like = this.findList[i].like
+								}
+									// System.out.println(arr[i]);
+							}
 							this.mescroll.endByPage(curPageData.length, totalPage); 
 						}else {
 							uni.showToast({
@@ -134,6 +146,7 @@ page{
 	break-inside: avoid;
 	overflow: auto;
 	margin-bottom: 20rpx;
+	padding-bottom: 20rpx;
 	> image {
 		width: 340rpx;
 	}

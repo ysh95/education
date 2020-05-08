@@ -57,6 +57,11 @@
 			<button class="buyCourse" v-if='buyShow == 0' type="" @tap="goBuy(content.id)">购买完整教程</button>
 			<button class="buyConvert" v-if='buyShow == 0' type="" @tap="convert(content.id)">兑换完整教程</button>
 		</view>
+		<view class="contact">
+			<image src="../static/concat.png" mode=""></image>
+			<button type=""  open-type="contact"></button>
+		</view>
+		
 	</view>
 </template>
 
@@ -396,4 +401,31 @@ export default {
 		color: #fe9359;
 	}
 }
+.contact{
+	width: 120rpx;
+	height: 120rpx;
+	border-radius: 50%;
+	position: fixed;
+	z-index: 99;
+	right: -12rpx;
+	bottom: 22vh;
+	image{
+		width: 100%;
+		height: 100%;
+	}
+	button{
+		background: rgba($color: #000000, $alpha: 0) !important;
+		width: 120rpx;
+		height: 120rpx;
+		border: none !important;
+		position: absolute;
+		top: 0;
+		left: 0;
+		padding: 0;
+	}
+}
+button::after {
+	border: none;
+}
+
 </style>

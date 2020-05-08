@@ -77,6 +77,19 @@
 							}else{
 								if (page.num == 1) this.list = [];
 								this.list = this.list.concat(res.data.data);
+								for (let i = 0; i < this.list.length; i++) {
+									console.log(this.list[i].discover.like)
+									let likeNum = this.list[i].discover.like
+									if(likeNum.toString().length >= 4){
+										// let likeN = Math
+										let likeN = (likeNum/10000).toFixed(1)
+										// console.log(likeN)
+										this.list[i].discover.like = likeN+'W'
+									}else{
+										this.list[i].discover.like = this.list[i].discover.like
+									}
+										// System.out.println(arr[i]);
+								}
 								this.mescroll.endByPage(res.data.data.length,  res.data.total);
 							}
 						} else {

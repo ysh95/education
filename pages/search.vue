@@ -221,7 +221,7 @@ export default {
 		}
 	}
 	input {
-		// width: 690rpx;
+		width: 100%;
 
 		border-radius: 30rpx;
 	}

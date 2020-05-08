@@ -39,7 +39,7 @@
 						<view @tap="tapLike(is_like)">
 							<uni-icons class="iconfont iconxin" type="" v-if="is_like == 0"></uni-icons>
 							<uni-icons class="iconfont icontaoxin" style="color: #FF0000;" type="" v-if="is_like == 1"></uni-icons>
-							<text>{{ videoList.like || 0 }}</text>
+							<text>{{ likeNum || 0 }}</text>
 						</view>
 					</view>
 					<view class="item">
@@ -107,7 +107,8 @@ export default {
 			page: '1',
 			text: '',
 			postContent: '说点什么吧',
-			userInfoButtonShow: true
+			userInfoButtonShow: true,
+			likeNum: ''
 		};
 	},
 	onLoad(option) {
@@ -256,6 +257,15 @@ export default {
 					if (res.data.status_code == 'ok') {
 						this.videoList = res.data.data;
 						this.is_like = res.data.is_like;
+						this.likeNum = this.videoList.like
+						if(this.likeNum.toString().length >= 4){
+							// let likeN = Math
+							let likeN = (this.likeNum/10000).toFixed(1)
+							// console.log(likeN)
+							this.likeNum = likeN+'W'
+						}else{
+							this.likeNum = this.videoList.like
+						}
 					}
 				}
 			});
@@ -333,6 +343,7 @@ export default {
 						});
 						this.postContent = '';
 						this.page = '1';
+						this.shadeList = [];
 						this.getShade();
 					} else {
 						uni.showToast({
@@ -371,12 +382,34 @@ export default {
 							title: res.message,
 							icon: 'none'
 						});
+						
+						
 						if (this.is_like == 1) {
 							this.is_like = 0;
-							this.videoList.like--;
+							this.videoList.like--
+							if(this.videoList.like.toString().length >= 4){
+								// console.log(this.likeNum --)
+								// let likeN = Math
+								let likeN = this.videoList.like
+								console.log(likeN)
+								likeN = (likeN/10000).toFixed(1)
+								// console.log(likeN)
+								this.likeNum = likeN+'W'
+							}else{
+								this.likeNum = this.videoList.like
+							}
 						} else {
+							this.videoList.like++
 							this.is_like = 1;
-							this.videoList.like++;
+							if(this.videoList.like.toString().length >= 4){
+								let likeN = this.videoList.like
+								console.log(likeN)
+								likeN = (likeN/10000).toFixed(1)
+								console.log(likeN)
+								this.likeNum = likeN+'W'
+							}else{
+								this.likeNum = this.videoList.like
+							}
 						}
 					} else {
 						uni.showToast({

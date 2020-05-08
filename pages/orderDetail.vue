@@ -148,6 +148,7 @@ export default {
 		margin-right: 24rpx;
 	}
 	.left {
+		width: 505rpx;
 		text {
 			display: block;
 			text-overflow: ellipsis;

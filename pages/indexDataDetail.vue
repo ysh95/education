@@ -48,6 +48,10 @@
 			</view>
 		</view>
 		<view class="bottom" @tap="goBuy(dataInfo.id)"><button type="" class="buy">购买完整资料</button></view>
+		<view class="contact">
+			<image src="../static/concat.png" mode=""></image>
+			<button type=""  open-type="contact"></button>
+		</view>
 	</view>
 </template>
 
@@ -298,5 +302,31 @@
 	line-height: 62rpx;
 	border: none;
 	border-radius: 34rpx;
+}
+.contact{
+	width: 120rpx;
+	height: 120rpx;
+	border-radius: 50%;
+	position: fixed;
+	z-index: 99;
+	right: -12rpx;
+	bottom: 22vh;
+	image{
+		width: 100%;
+		height: 100%;
+	}
+	button{
+		background: rgba($color: #000000, $alpha: 0) !important;
+		width: 120rpx;
+		height: 120rpx;
+		border: none !important;
+		position: absolute;
+		top: 0;
+		left: 0;
+		padding: 0;
+	}
+}
+button::after {
+	border: none;
 }
 </style>

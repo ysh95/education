@@ -396,6 +396,11 @@
 						display: block;
 						color: #999999;
 						font-size: 24rpx;
+						overflow: hidden;
+						text-overflow: ellipsis;
+						display: -webkit-box;
+						-webkit-line-clamp: 2;
+						-webkit-box-orient: vertical;
 					}
 				}
 			}
