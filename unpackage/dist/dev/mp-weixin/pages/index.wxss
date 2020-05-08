@@ -1,0 +1,223 @@
+@charset "UTF-8";
+/**
+ * 这里是uni-app内置的常用样式变量
+ *
+ * uni-app 官方扩展插件及插件市场（https://ext.dcloud.net.cn）上很多三方插件均使用了这些样式变量
+ * 如果你是插件开发者，建议你使用scss预处理，并在插件代码中直接使用这些变量（无需 import 这个文件），方便用户通过搭积木的方式开发整体风格一致的App
+ *
+ */
+/**
+ * 如果你是App开发者（插件使用者），你可以通过修改这些变量来定制自己的插件主题，实现自定义主题功能
+ *
+ * 如果你的项目同样使用了scss预处理，你也可以直接在你的 scss 代码中使用如下变量，同时无需 import 这个文件
+ */
+/* 颜色变量 */
+/* 行为相关颜色 */
+/* 文字基本颜色 */
+/* 背景颜色 */
+/* 边框颜色 */
+/* 尺寸变量 */
+/* 文字尺寸 */
+/* 图片尺寸 */
+/* Border Radius */
+/* 水平间距 */
+/* 垂直间距 */
+/* 透明度 */
+/* 文章场景相关 */
+.index {
+  width: 750rpx;
+}
+.index .head {
+  width: 690rpx;
+  padding: 30rpx;
+  background-color: #efcf59;
+  height: 160rpx;
+}
+.index .search {
+  width: 640rpx;
+  background: #ffffff;
+  border-radius: 30rpx;
+  height: 60rpx;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+  -webkit-align-content: center;
+          align-content: center;
+  padding: 0 30rpx;
+}
+.index .search .iconsousuo {
+  color: #cdcdcd;
+  font-size: 28rpx;
+  margin-right: 20rpx;
+}
+.index .search input {
+  color: #cdcdcd;
+  font-size: 28rpx;
+}
+.index .indexBanner {
+  width: 690rpx;
+  height: 294rpx;
+  border-radius: 14rpx;
+  overflow: hidden;
+  z-index: 9;
+  margin-top: -120rpx;
+  padding: 30rpx;
+}
+.index .indexBanner swiper-item {
+  width: 100%;
+  height: 100%;
+  border-radius: 14rpx;
+}
+.index .indexBanner image {
+  width: 100%;
+  height: 100%;
+}
+.nav {
+  width: 690rpx;
+  padding: 0 30rpx 30rpx;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-justify-content: space-around;
+          justify-content: space-around;
+}
+.nav .item {
+  width: 140rpx;
+  text-align: center;
+  font-size: 28rpx;
+  color: #343434;
+}
+.nav .item image {
+  width: 80rpx;
+  height: 80rpx;
+  display: block;
+  margin: 0 auto 10rpx;
+}
+.nav .item:nth-of-type(3) {
+  margin-right: 0rpx;
+}
+.sellData {
+  width: 690rpx;
+  padding: 30rpx 30rpx 20rpx;
+  overflow: hidden;
+  border-top: 20rpx solid #FAF9F5;
+}
+.sellData .item {
+  width: 300rpx;
+}
+.index .recommend {
+  width: 690rpx;
+  padding: 30rpx;
+}
+.recTitle {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+}
+.recTitle .recTitleL {
+  font-weight: 600;
+  color: #343434;
+  font-size: 36rpx;
+}
+.recTitle .recTitleR {
+  color: #999999;
+  font-weight: 600;
+  font-size: 24rpx;
+  margin-left: 20rpx;
+}
+.index .recommend .recList {
+  width: 100%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: start;
+  -webkit-justify-content: flex-start;
+          justify-content: flex-start;
+  -webkit-flex-wrap: wrap;
+          flex-wrap: wrap;
+}
+.scroll-list {
+  white-space: nowrap;
+}
+.item {
+  width: 330rpx;
+  margin: 20rpx 30rpx 0 0;
+  display: inline-block;
+}
+.recommend .item:nth-of-type(2n) {
+  margin-right: 0;
+}
+.item .img {
+  width: 100%;
+  height: 178rpx;
+  border-radius: 12rpx;
+  overflow: hidden;
+}
+.recBottom text {
+  display: block;
+}
+.recBottom .teach {
+  color: #343434;
+  font-weight: 600;
+  font-size: 28rpx;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin: 10rpx 0;
+}
+.recBottom .price {
+  color: #ff1d00;
+  font-weight: 600;
+  font-size: 24rpx;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin: 10rpx 0;
+}
+.more {
+  color: #999999;
+  font-weight: 600;
+  font-size: 26rpx;
+  border: 1rpx solid #dddddd;
+  border-radius: 10rpx;
+  width: 220rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  margin: 20rpx auto;
+  text-align: center;
+  display: block;
+}
+.index .star {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+}
+.index .star image {
+  width: 14rpx;
+  height: 14rpx;
+}
+#getUserInfo {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 9;
+  background-color: transparent;
+  border: none !important;
+}
+button::after {
+  border: none !important;
+}
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  color: transparent;
+}
+

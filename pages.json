@@ -1,0 +1,247 @@
+{
+	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+		{
+			"path": "pages/index",
+			"style": {
+				"navigationBarTitleText": "茂喵喵知识书屋"
+			}
+		},
+		{
+			"path": "pages/indexDataDetail",
+			"style": {
+				"navigationBarTitleText": "资料详情"
+			}
+		},
+		{
+			"path": "pages/indexCourse",
+			"style": {
+				"navigationBarTitleText": "课程详情"
+			}
+		},
+		{
+			"path": "pages/indexAll",
+			"style": {
+				"navigationBarTitleText": "全部资料"
+			}
+		},
+		{
+			"path": "pages/courseConvert",
+			"style": {
+				"navigationBarTitleText": "课程兑换"
+			}
+		},
+		{
+			"path": "pages/dataBuy",
+			"style": {
+				"navigationBarTitleText": "资料购买"
+			}
+		},
+		{
+			"path": "pages/classify",
+			"style": {
+				"navigationBarTitleText": "分类"
+			}
+		},
+		{
+			"path": "pages/classifyDetail",
+			"style": {
+				"navigationBarTitleText": ""
+			}
+		},
+		{
+			"path": "pages/find",
+			"style": {
+				"navigationBarTitleText": "发现"
+			}
+		},
+		{
+			"path": "pages/findDetail",
+			"style": {
+				"navigationBarTitleText": "视频详情"
+			}
+		},
+		{
+			"path": "pages/message",
+			"style": {
+				"navigationBarTitleText": "消息"
+			}
+		},
+		{
+			"path": "pages/replyMe",
+			"style": {
+				"navigationBarTitleText": "回复我"
+			}
+		},
+		{
+			"path": "pages/systemNotice",
+			"style": {
+				"navigationBarTitleText": "系统通知"
+			}
+		},
+		{
+			"path": "pages/articleDetail",
+			"style": {
+				"navigationBarTitleText": "文章详情"
+			}
+		},
+		{
+			"path": "pages/service",
+			"style": {
+				"navigationBarTitleText": "客服消息"
+			}
+		},
+		{
+			"path": "pages/me",
+			"style": {
+				"navigationBarTitleText": "我的"
+			}
+		},
+
+		{
+			"path": "pages/mePurchased",
+			"style": {
+				"navigationBarTitleText": "已购课程"
+			}
+		},
+		{
+			"path": "pages/courseOrder",
+			"style": {
+				"navigationBarTitleText": "课程订单"
+			}
+		},
+		{
+			"path": "pages/dataOrder",
+			"style": {
+				"navigationBarTitleText": "资料订单"
+			}
+		},
+		{
+			"path": "pages/meLike",
+			"style": {
+				"navigationBarTitleText": "我的喜欢"
+			}
+		},
+		{
+			"path": "pages/changeTel",
+			"style": {
+				"navigationBarTitleText": "更换手机号"
+			}
+		},
+		{
+			"path": "pages/meIntegral",
+			"style": {
+				"navigationBarTitleText": "我的积分"
+			}
+		},
+		{
+			"path": "pages/agentList",
+			"style": {
+				"navigationBarTitleText": "代理列表"
+			}
+		},
+		{
+			"path": "pages/bindTel",
+			"style": {
+				"navigationBarTitleText": "绑定手机号"
+			}
+		},
+		{
+			"path": "pages/meConvert",
+			"style": {
+				"navigationBarTitleText": "我的兑换码"
+			}
+		},
+		{
+			"path": "pages/saleConvert",
+			"style": {
+				"navigationBarTitleText": "赠送兑换码"
+			}
+		},
+		{
+			"path": "pages/buyConvert",
+			"style": {
+				"navigationBarTitleText": "购买兑换码"
+			}
+		},
+		{
+			"path": "pages/addersList",
+			"style": {
+				"navigationBarTitleText": "地址管理"
+			}
+
+		},
+		{
+			"path": "pages/addersNew",
+			"style": {
+				"navigationBarTitleText": "地址编辑"
+			}
+		},
+		{
+			"path": "pages/joinAgent",
+			"style": {
+				"navigationBarTitleText": "加入代理"
+			}
+		},
+		{
+			"path": "pages/search",
+			"style": {
+				"navigationBarTitleText": "搜索"
+			}
+		},
+		{
+			"path": "pages/courseCode",
+			"style": {
+				"navigationBarTitleText": "课程兑换"
+			}
+		},
+		{
+			"path": "pages/orderAssess",
+			"style": {
+				"navigationBarTitleText": "订单评价"
+			}
+		},
+		{
+			"path": "pages/orderDetail",
+			"style": {
+				"navigationBarTitleText": "订单详情"
+			}
+		},
+		{
+			"path": "pages/contact",
+			"style": {
+				"navigationBarTitleText": "联系代理"
+			}
+		}
+	],
+	"globalStyle": {
+		"navigationBarTextStyle": "black",
+		"navigationBarTitleText": "uni-app",
+		"navigationBarBackgroundColor": "#EFCF59",
+		"backgroundColor": "#F8F8F8"
+	},
+	"tabBar": {
+		"color": "#333333",
+		"selectedColor": "#EFCF59",
+		"borderStyle": "black",
+		"backgroundColor": "#ffffff",
+		"list": [{
+				"pagePath": "pages/index",
+				"iconPath": "./static/index.png",
+				"selectedIconPath": "./static/indexCur.png",
+				"text": "首页"
+			},
+			{
+				"pagePath": "pages/classify",
+				"iconPath": "./static/fl.png",
+				"selectedIconPath": "./static/flCur.png",
+				"text": "分类"
+			},
+			{
+				"pagePath": "pages/me",
+				"iconPath": "./static/me.png",
+				"selectedIconPath": "./static/meCur.png",
+				"text": "我的"
+			}
+		]
+	}
+}

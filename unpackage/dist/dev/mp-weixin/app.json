@@ -1,0 +1,77 @@
+{
+  "pages": [
+    "pages/index",
+    "pages/indexDataDetail",
+    "pages/indexCourse",
+    "pages/indexAll",
+    "pages/courseConvert",
+    "pages/dataBuy",
+    "pages/classify",
+    "pages/classifyDetail",
+    "pages/find",
+    "pages/findDetail",
+    "pages/message",
+    "pages/replyMe",
+    "pages/systemNotice",
+    "pages/articleDetail",
+    "pages/service",
+    "pages/me",
+    "pages/mePurchased",
+    "pages/courseOrder",
+    "pages/dataOrder",
+    "pages/meLike",
+    "pages/changeTel",
+    "pages/meIntegral",
+    "pages/agentList",
+    "pages/bindTel",
+    "pages/meConvert",
+    "pages/saleConvert",
+    "pages/buyConvert",
+    "pages/addersList",
+    "pages/addersNew",
+    "pages/joinAgent",
+    "pages/search",
+    "pages/courseCode",
+    "pages/orderAssess",
+    "pages/orderDetail",
+    "pages/contact"
+  ],
+  "subPackages": [],
+  "window": {
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "uni-app",
+    "navigationBarBackgroundColor": "#EFCF59",
+    "backgroundColor": "#F8F8F8"
+  },
+  "tabBar": {
+    "color": "#333333",
+    "selectedColor": "#EFCF59",
+    "borderStyle": "black",
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+        "pagePath": "pages/index",
+        "iconPath": "./static/index.png",
+        "selectedIconPath": "./static/indexCur.png",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/classify",
+        "iconPath": "./static/fl.png",
+        "selectedIconPath": "./static/flCur.png",
+        "text": "分类"
+      },
+      {
+        "pagePath": "pages/me",
+        "iconPath": "./static/me.png",
+        "selectedIconPath": "./static/meCur.png",
+        "text": "我的"
+      }
+    ]
+  },
+  "usingComponents": {
+    "mescroll-body": "/componets/mescroll-uni/mescroll-body",
+    "mescroll-uni": "/componets/mescroll-uni/mescroll-uni"
+  },
+  "sitemapLocation": "sitemap21.json"
+}

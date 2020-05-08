@@ -1,0 +1,1 @@
+<view class="replyMe"><view><block wx:for="{{list}}" wx:for-item="item" wx:for-index="index" wx:key="index"><block><view class="item"><text class="reply">{{item.name+"回复我： "+item.conten}}</text><text>{{item.time}}</text></view></block></block></view></view>

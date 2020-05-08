@@ -1,0 +1,197 @@
+@charset "UTF-8";
+/**
+ * 这里是uni-app内置的常用样式变量
+ *
+ * uni-app 官方扩展插件及插件市场（https://ext.dcloud.net.cn）上很多三方插件均使用了这些样式变量
+ * 如果你是插件开发者，建议你使用scss预处理，并在插件代码中直接使用这些变量（无需 import 这个文件），方便用户通过搭积木的方式开发整体风格一致的App
+ *
+ */
+/**
+ * 如果你是App开发者（插件使用者），你可以通过修改这些变量来定制自己的插件主题，实现自定义主题功能
+ *
+ * 如果你的项目同样使用了scss预处理，你也可以直接在你的 scss 代码中使用如下变量，同时无需 import 这个文件
+ */
+/* 颜色变量 */
+/* 行为相关颜色 */
+/* 文字基本颜色 */
+/* 背景颜色 */
+/* 边框颜色 */
+/* 尺寸变量 */
+/* 文字尺寸 */
+/* 图片尺寸 */
+/* Border Radius */
+/* 水平间距 */
+/* 垂直间距 */
+/* 透明度 */
+/* 文章场景相关 */
+page {
+  background-color: #F5F5F5;
+}
+.containe {
+  width: 750rpx;
+  padding-bottom: 100rpx;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+.containe .carList {
+  width: 670rpx;
+  padding: 0 40rpx;
+  margin: 20rpx 0 60rpx;
+}
+.containe .carList .top {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: start;
+  -webkit-justify-content: flex-start;
+          justify-content: flex-start;
+  -webkit-align-content: center;
+          align-content: center;
+  align-content: center;
+  margin-bottom: 26rpx;
+}
+.containe .carList .top image {
+  width: 64rpx;
+  height: 64rpx;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.containe .carList .top .userName {
+  color: #343434;
+  font-size: 28rpx;
+  font-weight: 600;
+  margin-left: 20rpx;
+  display: block;
+  background-color: #FFFFFF;
+  padding: 18rpx 30rpx;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-align-content: center;
+          align-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+  border-radius: 40rpx;
+}
+.containe .carList .twoTop {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: end;
+  -webkit-justify-content: flex-end;
+          justify-content: flex-end;
+  -webkit-align-content: flex-end;
+          align-content: flex-end;
+  margin-bottom: 26rpx;
+  overflow: hidden;
+}
+.containe .carList .twoTop image {
+  width: 64rpx;
+  height: 64rpx;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-left: 20rpx;
+}
+.containe .carList .twoTop .userName {
+  color: #343434;
+  font-size: 28rpx;
+  font-weight: 600;
+  margin-left: 20rpx;
+  display: block;
+  background-color: #FFFFFF;
+  padding: 18rpx 30rpx;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-align-content: center;
+          align-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+  border-radius: 40rpx;
+  white-space: pre-wrap;
+}
+.containe .carList .me {
+  font-size: 28rpx;
+  color: #1F1F1F;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: end;
+  -webkit-justify-content: flex-end;
+          justify-content: flex-end;
+}
+.containe .carList .you {
+  font-size: 28rpx;
+  color: #1F1F1F;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: start;
+  -webkit-justify-content: flex-start;
+          justify-content: flex-start;
+}
+.containe .carList .message {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: start;
+  -webkit-justify-content: flex-start;
+          justify-content: flex-start;
+  margin-left: 18rpx;
+  height: 44rpx;
+  line-height: 66rpx;
+  -webkit-align-content: flex-end;
+          align-content: flex-end;
+}
+.containe .carList .message text {
+  font-size: 22rpx;
+  color: #999999;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-align-content: flex-end;
+          align-content: flex-end;
+}
+.containe .carList .message .hd {
+  color: #5CBCFF;
+}
+.containe .carList .message .tw {
+  color: #FF4646;
+}
+.containe .send {
+  width: 690rpx;
+  padding: 20rpx 30rpx;
+  background: #ffffff;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+          justify-content: space-between;
+  -webkit-align-content: center;
+          align-content: center;
+  position: fixed;
+  align-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+  bottom: 0;
+  left: 0;
+}
+.containe .send text {
+  width: 98rpx;
+  height: 60rpx;
+  border: 1rpx solid #B6B6B6;
+  border-radius: 10rpx;
+  text-align: center;
+  line-height: 60rpx;
+  font-size: 26rpx;
+  color: #1F1F1F;
+}
+.containe .send input {
+  width: 520rpx;
+  padding-left: 40rpx;
+}
+

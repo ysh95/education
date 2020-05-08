@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "搜索",
+  "usingComponents": {
+    "uni-rate": "/componets/wyc-rate/uni-rate"
+  }
+}

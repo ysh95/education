@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "加入代理",
+  "usingComponents": {
+    "picker-address": "/componets/wangding-pickerAddress"
+  }
+}

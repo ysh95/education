@@ -1,0 +1,1 @@
+<view class="articleDetail"><view class="head"><text class="title">{{detail.title}}</text><text>{{detail.created_at}}</text></view><jyf-parser class="content" vue-id="e1b1b1f0-1" html="{{detail.content}}" bind:__l="__l"></jyf-parser></view>

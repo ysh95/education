@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "全部资料",
+  "usingComponents": {
+    "uni-rate": "/componets/wyc-rate/uni-rate"
+  }
+}
