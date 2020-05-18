@@ -44,6 +44,7 @@ page {
           break-inside: avoid;
   overflow: auto;
   margin-bottom: 20rpx;
+  padding-bottom: 20rpx;
 }
 .find .list > image {
   width: 340rpx;

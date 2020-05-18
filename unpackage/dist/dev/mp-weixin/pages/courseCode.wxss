@@ -49,6 +49,9 @@ page {
   border-radius: 8rpx;
   margin-right: 24rpx;
 }
+.shop .left {
+  width: 505rpx;
+}
 .shop .left text {
   display: block;
   text-overflow: ellipsis;

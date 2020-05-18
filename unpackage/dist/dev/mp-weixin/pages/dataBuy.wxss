@@ -32,7 +32,7 @@ page {
 }
 .dataAdder {
   width: 690rpx;
-  padding: 30rpx;
+  padding: 30rpx 30rpx 0;
   background-color: #FFFFFF;
 }
 .dataAdder .dataUser {
@@ -99,6 +99,9 @@ page {
   height: 106rpx;
   border-radius: 8rpx;
   margin-right: 24rpx;
+}
+.shop .left {
+  width: 505rpx;
 }
 .shop .left text {
   display: block;
