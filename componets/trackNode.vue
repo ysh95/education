@@ -3,7 +3,9 @@
     <div class="node-container">
       <div class="node-container-left">
         <div class="tag-container">
-          <img v-if="isMainNode" :src="nodeIconUrl"/>
+					<div  v-if="isMainNode" class="node-tag-container">
+					  <div class="node-tag" style='background-color: #FE9359;'></div>
+					</div>
           <div v-else class="node-tag-container">
             <div class="node-tag"></div>
           </div>
@@ -12,11 +14,10 @@
           <div v-if="!isFirst" class="line" :style="{height: isMainNode?'120rpx':'80rpx'}"></div>
         </div>
       </div>
-      <div class="node-container-right" :style="{paddingTop: isMainNode?'0':'8rpx'}">
-        <div v-if="isMainNode" class="node-title" :style="{color: isNewest?'#222':'#999'}">{{nodeData.statusName}}</div>
-        <div class="node-desc" :style="{color: isNewest?'#4b4b4b':'#999', marginTop: isMainNode?'10rpx':'0'}">{{acceptStationFixed}}</div>
-        <div v-if="nodeData.phone" class="node-phone">{{nodeData.phone}}</div>
-        <div class="node-time">{{nodeData.createTime}}</div>
+      <div class="node-container-right">
+        <!-- <div v-if="isMainNode" class="node-title" :style="{color: isNewest?'#222':'#999'}">{{nodeData.statusName}}</div> -->
+        <div class="node-desc" style="color:'#999'">{{nodeData.remark}}</div>
+        <div class="node-time">{{nodeData.datetime}}</div>
       </div>
     </div>
   </div>
@@ -49,23 +50,6 @@ export default {
     }
   },
   computed: {
-    nodeIconUrl () {
-      if (this.nodeData.status === 'WATTING_PAY') { // 待付款
-        return this.isNewest ? '/static/images/ic-order-commit.png' : '/static/images/ic-order-commit-G.png'
-      } else if (this.nodeData.status === 'PAYED') { // 待发货
-        return this.isNewest ? '/static/images/ic-paied.png' : '/static/images/ic-paied-G.png'
-      } else if (this.nodeData.status === 'WATTING_DELIVER') { // 已揽件
-        return this.isNewest ? '/static/images/ic-pacakaging.png' : '/static/images/ic-pacakaging-G.png'
-      } else if (this.nodeData.status === 'DELIVERING') { // 运输中
-        return this.isNewest ? '/static/images/ic-sending.png' : '/static/images/ic-sending-G.png'
-      } else if (this.nodeData.status === 'COMPLETE') { // 已完成
-        return this.isNewest ? '/static/images/ic-delivering.png' : '/static/images/ic-delivering-G.png'
-      }
-    },
-    acceptStationFixed () {
-      if (!this.nodeData.acceptStation) return ''
-      return this.nodeData.acceptStation.replace(/(\d{3})\d{4}(\d{4})/, '')
-    }
   }
 }
 </script>
@@ -130,8 +114,8 @@ export default {
         width: 100%;
         min-height: 30rpx;
         line-height: 30rpx;
-        color: #222;
-        font-size: 24rpx;
+        color: #999;
+        font-size: 28rpx;
         font-family: 'PingFangSC-Regular';
         word-wrap: break-word;
         word-break: normal;
@@ -151,10 +135,13 @@ export default {
         height: 34rpx;
         line-height: 34rpx;
         color: #999;
-        font-size: 24rpx;
+        font-size: 28rpx;
         font-family: 'Avenir-Book';
       }
     }
   }
+}
+.total-wrap:last-child{
+	background-color: #ccc;
 }
 </style>

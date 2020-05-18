@@ -105,8 +105,8 @@
   width: 100%;
   min-height: 30rpx;
   line-height: 30rpx;
-  color: #222;
-  font-size: 24rpx;
+  color: #999;
+  font-size: 28rpx;
   font-family: 'PingFangSC-Regular';
   word-wrap: break-word;
   word-break: normal;
@@ -126,7 +126,10 @@
   height: 34rpx;
   line-height: 34rpx;
   color: #999;
-  font-size: 24rpx;
+  font-size: 28rpx;
   font-family: 'Avenir-Book';
+}
+.total-wrap.data-v-99fb7fd0:last-child {
+  background-color: #ccc;
 }
 

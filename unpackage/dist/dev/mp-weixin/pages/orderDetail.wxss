@@ -169,4 +169,109 @@ checkbox .wx-checkbox-input.wx-checkbox-input-checked {
   color: #343434;
   font-size: 28rpx;
 }
+.total-wrap {
+  margin-top: 22rpx;
+  width: 100%;
+}
+.total-wrap .node-container {
+  width: 100%;
+  height: auto;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+}
+.total-wrap .node-container-left {
+  width: 44rpx;
+  height: auto;
+}
+.total-wrap .node-container-left .tag-container {
+  width: 44rpx;
+  height: 44rpx;
+}
+.total-wrap .node-container-left .tag-container ._img {
+  width: 44rpx;
+  height: 44rpx;
+}
+.total-wrap .node-container-left .tag-container .node-tag-container {
+  width: 44rpx;
+  height: 44rpx;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+          justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+}
+.total-wrap .node-container-left .tag-container .node-tag-container .node-tag {
+  width: 14rpx;
+  height: 14rpx;
+  background-color: #dcdcdc;
+  border-radius: 50%;
+}
+.total-wrap .node-container-left .line-container {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  width: 44rpx;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+          justify-content: center;
+}
+.total-wrap .node-container-left .line-container .line {
+  width: 2rpx;
+  background-color: #dcdcdc;
+}
+.total-wrap .node-container-right {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+          flex: 1;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 0 10rpx 0 24rpx;
+}
+.total-wrap .node-container-right .node-title {
+  width: 100%;
+  height: 40rpx;
+  line-height: 44rpx;
+  color: #222;
+  font-size: 28rpx;
+  font-family: 'PingFangSC-Medium';
+}
+.total-wrap .node-container-right .node-desc {
+  margin-top: 16rpx;
+  width: 100%;
+  min-height: 30rpx;
+  line-height: 30rpx;
+  color: #999;
+  font-size: 28rpx;
+  font-family: 'PingFangSC-Regular';
+  word-wrap: break-word;
+  word-break: normal;
+}
+.total-wrap .node-container-right .node-time {
+  margin-top: 12rpx;
+  width: 100%;
+  height: 34rpx;
+  line-height: 34rpx;
+  color: #999;
+  font-size: 28rpx;
+  font-family: 'Avenir-Book';
+}
+.logistics > view .total-wrap:first-child .node-container .node-container-left .tag-container .node-tag {
+  background-color: #FE9359;
+}
+.logistics > view .total-wrap:first-child .node-container .node-container-right .node-desc {
+  color: #FE9359;
+}
+.logistics > view .total-wrap:first-child .node-container .node-container-right .node-time {
+  color: #FE9359;
+}
 

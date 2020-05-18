@@ -1,6 +1,4 @@
 {
   "navigationBarTitleText": "订单详情",
-  "usingComponents": {
-    "track-node": "/componets/trackNode"
-  }
+  "usingComponents": {}
 }

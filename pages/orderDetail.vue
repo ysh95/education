@@ -33,20 +33,45 @@
 		<view class="item">订单价格: ￥{{ info.price }}</view>
 		<view class="logistics"  v-if="info.address">
 			<text>物流信息</text>
-			<block v-for="(item, index) in tracesData" :key="index">
-			  <trackNode :is-first="index===tracesData.length-1" :is-newest="index===0" :is-main-node="item.isMainNode" :node-data="item"></trackNode>
-			</block>
+			<view>
+				<block v-for="(item, index) in tracesData" :key="index">
+				 <!-- <trackNode class='trackNodeList' :is-first="index===tracesData.length-1" :is-newest="index===0" :is-main-node="item.isMainNode" :node-data="item"></trackNode> -->
+				 <view class="total-wrap" :style="{marginTop: isMainNode?'22rpx':'6rpx'}">
+				   <view class="node-container">
+				     <view class="node-container-left">
+				       <view class="tag-container">
+				 				<view  v-if="isMainNode" class="node-tag-container">
+				 				  <view class="node-tag" style='background-color: #FE9359;'></view>
+				 				</view>
+				         <view v-else class="node-tag-container">
+				           <view class="node-tag"></view>
+				         </view>
+				       </view>
+				       <view class="line-container" :style="{height: isMainNode?'142rpx':'88rpx', paddingTop: isMainNode?'22rpx':'8rpx'}">
+				         <view v-if="!isFirst" class="line" :style="{height: isMainNode?'120rpx':'80rpx'}"></view>
+				       </view>
+				     </view>
+				     <view class="node-container-right">
+				       <!-- <div v-if="isMainNode" class="node-title" :style="{color: isNewest?'#222':'#999'}">{{nodeData.statusName}}</div> -->
+				       <view class="node-desc" style="color:'#999'">{{item.remark}}</view>
+				       <view class="node-time">{{item.datetime}}</view>
+				     </view>
+				   </view>
+				 </view>
+				</block>
+			</view>
+			
 		</view>
 	</view>
 </template>
 
 <script>
 const app = getApp();
-import trackNode from '../componets/trackNode.vue'
+// import trackNode from '../componets/trackNode.vue'
 export default {
-	components: {
-	  trackNode
-	},
+	// components: {
+	//   trackNode
+	// },
 	data() {
 		return {
 			info: {},
@@ -55,99 +80,23 @@ export default {
 			usePoints: '',
 			addressList: {},
 			tracesData: [
-			    {
-			      acceptStation: '包裹已被吴亦发同学签收', // 节点描述
-			      createTime: '2019-10-24 15: 27: 16',
-			      status: 'COMPLETE', // 节点状态
-			      phone: '', // 电话
-			      statusName: '已签收', // 节点标题
-			      isMainNode: true // 是否主节点，主节点前方展示icon
-			    },
-			    {
-			      acceptStation: '由派送员蔡小坤同志配送，电话：',
-			      createTime: '2019-10-24 15: 26: 41',
-			      status: 'DELIVERING',
-			      phone: '16677778888',
-			      statusName: '运输中',
-			      isMainNode: true
-			    },
-			    {
-			      acceptStation: '已到XXX小区快递点',
-			      createTime: '2019-10-24 15: 26: 41',
-			      status: 'DELIVERING',
-			      phone: '',
-			      statusName: '运输中',
-			      isMainNode: false
-			    },
-			    {
-			      acceptStation: '已到海宁集散中心',
-			      createTime: '2019-10-24 15: 26: 18',
-			      status: 'DELIVERING',
-			      phone: '',
-			      statusName: '运输中',
-			      isMainNode: false
-			    },
-			    {
-			      acceptStation: '已到杭州集散中心',
-			      createTime: '2019-10-24 15: 26: 07',
-			      status: 'DELIVERING',
-			      phone: '',
-			      statusName: '运输中',
-			      isMainNode: false
-			    },
-			    {
-			      acceptStation: '包裹已到达余杭区集散中心',
-			      createTime: '2019-10-24 15: 25: 54',
-			      status: 'DELIVERING',
-			      phone: '',
-			      statusName: '运输中',
-			      isMainNode: false
-			    },
-			    {
-			      acceptStation: '快递员已上门取件',
-			      createTime: '2019-10-24 15: 25: 17',
-			      status: 'DELIVERING',
-			      phone: '',
-			      statusName: '已揽收',
-			      isMainNode: false
-			    },
-			    {
-			      acceptStation: '等待快递员上门揽件',
-			      createTime: '2019-10-24 15: 25: 00',
-			      status: 'WATTING_DELIVER',
-			      phone: '',
-			      statusName: '已发货',
-			      isMainNode: true
-			    },
-			{
-			      acceptStation: '您的包裹正在打包',
-			      createTime: '2019-10-24 15: 24: 00',
-			      status: 'WATTING_DELIVER',
-			      phone: '',
-			      statusName: '待发货',
-			      isMainNode: false
-			    },
-			    {
-			      acceptStation: '订单支付成功，等待商家发货',
-			      createTime: '2019-10-24 15: 22: 30',
-			      status: 'PAYED',
-			      statusName: '已支付',
-			      isMainNode: true
-			    },
-			    {
-			      acceptStation: '订单提交成功',
-			      createTime: '2019-10-24 15: 22: 00',
-			      status: 'WATTING_PAY',
-			      statusName: '已下单',
-			      isMainNode: true
-			    }
-			  ]
+				
+			]
 		};
 	},
 	onLoad(option) {
 		console.log(option)
 		this.imgUrl = this.$helper.imgUrl;
 		let item = JSON.parse(option.obj)
+		console.log(item)
+		if(item.address){
+			if(item.logistics != false){
+				this.tracesData = item.logistics.result.list
+			}
+			
+		}
+		
+		console.log(item.address)
 		for (let key in item) {
 			for (let key2 in item[key]) {
 				item['orderitem'] = item[key]
@@ -312,5 +261,99 @@ checkbox .wx-checkbox-input.wx-checkbox-input-checked {
 		color: #343434;
 		font-size: 28rpx;
 	}
+	
 }
+.total-wrap {
+  margin-top: 22rpx;
+  width: 100%;
+  .node-container {
+    width: 100%;
+    height: auto;
+    display: flex;
+    &-left {
+      width: 44rpx;
+      height: auto;
+      .tag-container {
+        width: 44rpx;
+        height: 44rpx;
+        img {
+          width: 44rpx;
+          height: 44rpx;
+        }
+        .node-tag-container {
+          width: 44rpx;
+          height: 44rpx;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          .node-tag {
+            width: 14rpx;
+            height: 14rpx;
+            background-color: #dcdcdc;
+            border-radius: 50%;
+          }
+        }
+      }
+      .line-container {
+        box-sizing: border-box;
+        width: 44rpx;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        .line {
+          width: 2rpx;
+          background-color: #dcdcdc;
+        }
+      }
+    }
+    &-right {
+      flex: 1;
+      box-sizing: border-box;
+      padding: 0 10rpx 0 24rpx;
+      .node-title {
+        width: 100%;
+        height: 40rpx;
+        line-height: 44rpx;
+        color: #222;
+        font-size: 28rpx;
+        font-family: 'PingFangSC-Medium';
+      }
+      .node-desc {
+        margin-top: 16rpx;
+        width: 100%;
+        min-height: 30rpx;
+        line-height: 30rpx;
+        color: #999;
+        font-size: 28rpx;
+        font-family: 'PingFangSC-Regular';
+        word-wrap: break-word;
+        word-break: normal;
+      }
+      .node-time {
+        margin-top: 12rpx;
+        width: 100%;
+        height: 34rpx;
+        line-height: 34rpx;
+        color: #999;
+        font-size: 28rpx;
+        font-family: 'Avenir-Book';
+      }
+    }
+  }
+}
+.logistics>view .total-wrap:first-child{
+	
+	.node-container .node-container-left .tag-container .node-tag{
+		 background-color: #FE9359;
+	}
+	.node-container .node-container-right .node-desc{
+		color: #FE9359;
+	}
+	.node-container .node-container-right .node-time{
+		color: #FE9359;
+	}
+}
+// .trackNodeList{
+// 	background-color: #FE9359;
+// }
 </style>

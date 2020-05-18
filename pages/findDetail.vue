@@ -25,7 +25,7 @@
 			</view>
 			<view class="cover-view-right">
 				<view class="item">
-					<input @tap="tapShade" class="post" type="text" value="说点什么..." disabled="" placeholder="说点什么吧" placeholder-class="" />
+					<input @tap="tapShade" class="post" type="text" value="" disabled="" placeholder="说点什么吧" placeholder-class="" />
 				</view>
 
 				<view>
@@ -69,7 +69,7 @@
 					</scroll-view>
 				</view>
 				<view class="bottom">
-					<input type="text" :value="postContent" @input="post" />
+					<input type="text" :value="postContent" @input="post" placeholder="说点什么..."/>
 					<text @tap="send">发送</text>
 				</view>
 			</view>
@@ -106,7 +106,7 @@ export default {
 			totalPage: '',
 			page: '1',
 			text: '',
-			postContent: '说点什么吧',
+			postContent: '',
 			userInfoButtonShow: true,
 			likeNum: ''
 		};
@@ -612,7 +612,7 @@ export default {
 		justify-content: space-between;
 		align-items: center;
 		position: absolute;
-		bottom: 40rpx;
+		bottom: 20rpx;
 		left: 0;
 		text {
 			color: #fe9359;

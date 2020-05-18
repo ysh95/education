@@ -240,7 +240,7 @@
   -webkit-align-items: center;
           align-items: center;
   position: absolute;
-  bottom: 40rpx;
+  bottom: 20rpx;
   left: 0;
 }
 .shade .bottom text {

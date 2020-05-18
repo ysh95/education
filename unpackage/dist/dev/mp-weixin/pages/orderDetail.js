@@ -172,13 +172,38 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
-var app = getApp();var trackNode = function trackNode() {__webpack_require__.e(/*! require.ensure | componets/trackNode */ "componets/trackNode").then((function () {return resolve(__webpack_require__(/*! ../componets/trackNode.vue */ 410));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
-
-{
-  components: {
-    trackNode: trackNode },
-
+var app = getApp();
+// import trackNode from '../componets/trackNode.vue'
+var _default = {
+  // components: {
+  //   trackNode
+  // },
   data: function data() {
     return {
       info: {},
@@ -186,92 +211,7 @@ var app = getApp();var trackNode = function trackNode() {__webpack_require__.e(/
       dataType: '',
       usePoints: '',
       addressList: {},
-      tracesData: [
-      {
-        acceptStation: '包裹已被吴亦发同学签收', // 节点描述
-        createTime: '2019-10-24 15: 27: 16',
-        status: 'COMPLETE', // 节点状态
-        phone: '', // 电话
-        statusName: '已签收', // 节点标题
-        isMainNode: true // 是否主节点，主节点前方展示icon
-      },
-      {
-        acceptStation: '由派送员蔡小坤同志配送，电话：',
-        createTime: '2019-10-24 15: 26: 41',
-        status: 'DELIVERING',
-        phone: '16677778888',
-        statusName: '运输中',
-        isMainNode: true },
-
-      {
-        acceptStation: '已到XXX小区快递点',
-        createTime: '2019-10-24 15: 26: 41',
-        status: 'DELIVERING',
-        phone: '',
-        statusName: '运输中',
-        isMainNode: false },
-
-      {
-        acceptStation: '已到海宁集散中心',
-        createTime: '2019-10-24 15: 26: 18',
-        status: 'DELIVERING',
-        phone: '',
-        statusName: '运输中',
-        isMainNode: false },
-
-      {
-        acceptStation: '已到杭州集散中心',
-        createTime: '2019-10-24 15: 26: 07',
-        status: 'DELIVERING',
-        phone: '',
-        statusName: '运输中',
-        isMainNode: false },
-
-      {
-        acceptStation: '包裹已到达余杭区集散中心',
-        createTime: '2019-10-24 15: 25: 54',
-        status: 'DELIVERING',
-        phone: '',
-        statusName: '运输中',
-        isMainNode: false },
-
-      {
-        acceptStation: '快递员已上门取件',
-        createTime: '2019-10-24 15: 25: 17',
-        status: 'DELIVERING',
-        phone: '',
-        statusName: '已揽收',
-        isMainNode: false },
-
-      {
-        acceptStation: '等待快递员上门揽件',
-        createTime: '2019-10-24 15: 25: 00',
-        status: 'WATTING_DELIVER',
-        phone: '',
-        statusName: '已发货',
-        isMainNode: true },
-
-      {
-        acceptStation: '您的包裹正在打包',
-        createTime: '2019-10-24 15: 24: 00',
-        status: 'WATTING_DELIVER',
-        phone: '',
-        statusName: '待发货',
-        isMainNode: false },
-
-      {
-        acceptStation: '订单支付成功，等待商家发货',
-        createTime: '2019-10-24 15: 22: 30',
-        status: 'PAYED',
-        statusName: '已支付',
-        isMainNode: true },
-
-      {
-        acceptStation: '订单提交成功',
-        createTime: '2019-10-24 15: 22: 00',
-        status: 'WATTING_PAY',
-        statusName: '已下单',
-        isMainNode: true }] };
+      tracesData: [] };
 
 
 
@@ -280,6 +220,15 @@ var app = getApp();var trackNode = function trackNode() {__webpack_require__.e(/
     console.log(option);
     this.imgUrl = this.$helper.imgUrl;
     var item = JSON.parse(option.obj);
+    console.log(item);
+    if (item.address) {
+      if (item.logistics != false) {
+        this.tracesData = item.logistics.result.list;
+      }
+
+    }
+
+    console.log(item.address);
     for (var key in item) {
       for (var key2 in item[key]) {
         item['orderitem'] = item[key];
