@@ -199,8 +199,24 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
+
+
+
+
+
+
+
 var _helper = _interopRequireDefault(__webpack_require__(/*! ../componets/helper.js */ 12));
 var _mescrollMixins = _interopRequireDefault(__webpack_require__(/*! ../componets/mescroll-uni/mescroll-mixins.js */ 38));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };} //
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -272,7 +288,11 @@ var app = getApp();var _default = { mixins: [_mescrollMixins.default], // 使用
       }, upOption: { page: { num: 0, // 当前页码,默认0,回调之前会加1,即callback(page)会从1开始
           size: 20 // 每页数据的数量,默认10
         }, noMoreSize: 5, // 配置列表的总数量要大于等于5条才显示'-- END --'的提示
-        empty: { tip: '暂无相关数据' }, textNoMore: '没有更多数据了' }, buyShow: '' };}, onLoad: function onLoad(option) {this.imgUrl = _helper.default.imgUrl;this.curricula_id = option.id;this.getList();}, onShow: function onShow() {}, methods: { navTap: function navTap(e) {this.Inv = e;}, getList: function getList() {var _this = this;uni.showLoading({ title: '加载中...' });uni.request({ url: "".concat(_helper.default.requestUrl, "details/curricula"), method: 'POST', header: { authorization: app.globalData.token }, data: { curricula_id: this.curricula_id }, success: function success(res) {uni.hideLoading();res = _helper.default.null2str(res.data);console.log(res);if (res.status_code == 'ok') {_this.content = res.data;_this.buyShow = res.is_buy;} else {uni.showToast({ title: res.data.message, icon: 'none' });}} });}, convert: function convert(e) {
+        empty: { tip: '暂无相关数据' }, textNoMore: '没有更多数据了' }, buyShow: '', isShowBox: '' };}, onLoad: function onLoad(option) {var _this = this;this.imgUrl = _helper.default.imgUrl;this.curricula_id = option.id;this.getList();uni.request({ url: "".concat(_helper.default.requestUrl, "discover/hide"), method: 'GET', success: function success(res) {res = _helper.default.null2str(res.data);if (res.status_code == 'ok') {console.log(res.data);_this.isShowBox = res.data;}} });}, onShow: function onShow() {}, methods: { navTap: function navTap(e) {this.Inv = e;}, getList: function getList() {var _this2 = this;uni.showLoading({ title: '加载中...' });uni.request({ url: "".concat(_helper.default.requestUrl, "details/curricula"), method: 'POST', header: { authorization: app.globalData.token }, data: { curricula_id: this.curricula_id }, success: function success(res) {uni.hideLoading();res = _helper.default.null2str(res.data);console.log(res);if (res.status_code == 'ok') {_this2.content = res.data;_this2.buyShow = res.is_buy;} else {uni.showToast({ title: res.data.message, icon: 'none' });}
+        } });
+
+    },
+    convert: function convert(e) {
       uni.navigateTo({
         url: "/pages/courseCode?id=".concat(e) });
 
@@ -284,7 +304,7 @@ var app = getApp();var _default = { mixins: [_mescrollMixins.default], // 使用
 
     },
     // 视频播放
-    showVideo: function showVideo(id, e) {var _this2 = this;
+    showVideo: function showVideo(id, e) {var _this3 = this;
       uni.request({
         url: "".concat(this.$helper.requestUrl, "details/getVideoUrl"),
         method: 'POST',
@@ -296,11 +316,11 @@ var app = getApp();var _default = { mixins: [_mescrollMixins.default], // 使用
 
         success: function success(res) {
           uni.hideLoading();
-          res = _this2.$helper.null2str(res.data);
+          res = _this3.$helper.null2str(res.data);
           console.log(res);
           if (res.status_code == 'ok') {
-            _this2.isSAutoplay = true;
-            _this2.videoUrl = res.data;
+            _this3.isSAutoplay = true;
+            _this3.videoUrl = res.data;
           } else {
             uni.showToast({
               title: res.message,
@@ -318,7 +338,7 @@ var app = getApp();var _default = { mixins: [_mescrollMixins.default], // 使用
     upCallback: function upCallback(page) {
       this.getCommitList(page);
     },
-    getCommitList: function getCommitList(page) {var _this3 = this;
+    getCommitList: function getCommitList(page) {var _this4 = this;
       uni.showLoading({
         title: '加载中...' });
 
@@ -336,15 +356,15 @@ var app = getApp();var _default = { mixins: [_mescrollMixins.default], // 使用
 
         success: function success(res) {
           uni.hideLoading();
-          res = _this3.$helper.null2str(res.data);
+          res = _this4.$helper.null2str(res.data);
           if (res.status_code == 'ok') {
             if (res.message == '暂无信息') {
-              _this3.commentList = [];
-              _this3.mescroll.endByPage(0, 0);
+              _this4.commentList = [];
+              _this4.mescroll.endByPage(0, 0);
             } else {
-              if (page.num == 1) _this3.commentList = [];
-              _this3.commentList = _this3.commentList.concat(res.data.data);
-              _this3.mescroll.endByPage(res.data.data.length, res.data.total);
+              if (page.num == 1) _this4.commentList = [];
+              _this4.commentList = _this4.commentList.concat(res.data.data);
+              _this4.mescroll.endByPage(res.data.data.length, res.data.total);
             }
           } else {
 

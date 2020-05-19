@@ -270,4 +270,7 @@
 button::after {
   border: none !important;
 }
+.img {
+  width: 100%;
+}
 

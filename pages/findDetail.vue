@@ -1,87 +1,89 @@
 <template>
 	<view class="findDetail">
 		<!-- 视频组件 -->
-		<view class="swiper">
-			<!-- <swiper-item> -->
-			<video
-				:src="videoList.video"
-				preload
-				show-play-btn="true"
-				id="myVideo"
-				objectFit="contain"
-				@click="clickVideo"
-				:autoplay="isShow"
-				ref="video_url"
-				play-btn-position="center"
-				class="video"
-				@timeupdate="timeupdate"
-			></video>
-			<image class="play" v-if="show_play" @tap="videoPlay" src="../static/stop.png"></image>
-			<view class="cover-view-left">
-				<view class="view-left-text">{{ videoList.title }}</view>
-				<view class="view-left-text-content">
-					<view class="text-content-text">{{ videoList.introduce }}</view>
-				</view>
-			</view>
-			<view class="cover-view-right">
-				<view class="item">
-					<input @tap="tapShade" class="post" type="text" value="" disabled="" placeholder="说点什么吧" placeholder-class="" />
-				</view>
-
-				<view>
-					<view class="item">
-						<view @tap="tapShade">
-							<uni-icons class="iconfont iconcomment" type=""></uni-icons>
-							<text>{{ videoList.comment || 0 }}</text>
-						</view>
-					</view>
-					<view class="item">
-						<view @tap="tapLike(is_like)">
-							<uni-icons class="iconfont iconxin" type="" v-if="is_like == 0"></uni-icons>
-							<uni-icons class="iconfont icontaoxin" style="color: #FF0000;" type="" v-if="is_like == 1"></uni-icons>
-							<text>{{ likeNum || 0 }}</text>
-						</view>
-					</view>
-					<view class="item">
-						<button open-type="share" style="opacity: 0;width: 100rpx;height: 100rpx;z-index: 99;position: absolute;"></button>
-						<uni-icons class="iconfont iconfenxiang" type=""></uni-icons>
-						<text>{{ videoList.share || 0 }}</text>
+		<view v-if="isShowBox == 'on'">
+			<view class="swiper">
+				<video
+					:src="videoList.video"
+					preload
+					show-play-btn="true"
+					id="myVideo"
+					objectFit="contain"
+					@click="clickVideo"
+					:autoplay="isShow"
+					ref="video_url"
+					play-btn-position="center"
+					class="video"
+					@timeupdate="timeupdate"
+				></video>
+				<image class="play" v-if="show_play" @tap="videoPlay" src="../static/stop.png"></image>
+				<view class="cover-view-left">
+					<view class="view-left-text">{{ videoList.title }}</view>
+					<view class="view-left-text-content">
+						<view class="text-content-text">{{ videoList.introduce }}</view>
 					</view>
 				</view>
-			</view>
-			<view class="shade" v-show="shade">
-				<view class="head">
-					<text>全部评论({{ totalPage || 0 }})</text>
-					<uni-icons @tap="closeTapShade()" type="" class="iconfont iconguanbi"></uni-icons>
-				</view>
-				<view class="content">
-					<scroll-view class="scroll" scroll-y="true" @scrolltolower="nextScroll">
-						<block v-for="(item, index) in shadeList" :key="index">
-							<view class="conItem">
-								<image :src="item.user.avatar" mode=""></image>
-								<view>
-									<text>{{ item.user.nickname }}</text>
-									<text class="conFont">{{ item.content }}</text>
-								</view>
+				<view class="cover-view-right">
+					<view class="item">
+						<input @tap="tapShade" class="post" type="text" value="" disabled="" placeholder="说点什么吧" placeholder-class="" />
+					</view>
+					<view>
+						<view class="item">
+							<view @tap="tapShade">
+								<uni-icons class="iconfont iconcomment" type=""></uni-icons>
+								<text>{{ videoList.comment || 0 }}</text>
 							</view>
-						</block>
-						<text>{{ text }}</text>
-					</scroll-view>
+						</view>
+						<view class="item">
+							<view @tap="tapLike(is_like)">
+								<uni-icons class="iconfont iconxin" type="" v-if="is_like == 0"></uni-icons>
+								<uni-icons class="iconfont icontaoxin" style="color: #FF0000;" type="" v-if="is_like == 1"></uni-icons>
+								<text>{{ likeNum || 0 }}</text>
+							</view>
+						</view>
+						<view class="item">
+							<button open-type="share" style="opacity: 0;width: 100rpx;height: 100rpx;z-index: 99;position: absolute;"></button>
+							<uni-icons class="iconfont iconfenxiang" type=""></uni-icons>
+							<text>{{ videoList.share || 0 }}</text>
+						</view>
+					</view>
 				</view>
-				<view class="bottom">
-					<input type="text" :value="postContent" @input="post" placeholder="说点什么..."/>
-					<text @tap="send">发送</text>
+				<view class="shade" v-show="shade">
+					<view class="head">
+						<text>全部评论({{ totalPage || 0 }})</text>
+						<uni-icons @tap="closeTapShade()" type="" class="iconfont iconguanbi"></uni-icons>
+					</view>
+					<view class="content">
+						<scroll-view class="scroll" scroll-y="true" @scrolltolower="nextScroll">
+							<block v-for="(item, index) in shadeList" :key="index">
+								<view class="conItem">
+									<image :src="item.user.avatar" mode=""></image>
+									<view>
+										<text>{{ item.user.nickname }}</text>
+										<text class="conFont">{{ item.content }}</text>
+									</view>
+								</view>
+							</block>
+							<text>{{ text }}</text>
+						</scroll-view>
+					</view>
+					<view class="bottom">
+						<input type="text" :value="postContent" @input="post" placeholder="说点什么..."/>
+						<text @tap="send">发送</text>
+					</view>
 				</view>
 			</view>
+			<button
+				open-type="getUserInfo"
+				style="opacity: 0;width: 100vw;height: 100vh;z-index: 999;position: absolute;"
+				v-if="userInfoButtonShow"
+				lang="zh_CN"
+				@getuserinfo="onGetUserInfo"
+			></button>
 		</view>
-		
-		<button
-			open-type="getUserInfo"
-			style="opacity: 0;width: 100vw;height: 100vh;z-index: 999;position: absolute;"
-			v-if="userInfoButtonShow"
-			lang="zh_CN"
-			@getuserinfo="onGetUserInfo"
-		></button>
+		<view class="" v-else>
+			<image class="img" :src="imgUrl+videoList.theme" mode="widthFix"></image>
+		</view>
 	</view>
 </template>
 
@@ -108,7 +110,8 @@ export default {
 			text: '',
 			postContent: '',
 			userInfoButtonShow: true,
-			likeNum: ''
+			likeNum: '',
+			isShowBox: ''
 		};
 	},
 	onLoad(option) {
@@ -121,6 +124,17 @@ export default {
 			success: res => {
 				if (res.authSetting['scope.userInfo']) {
 					this.userInfoButtonShow = false;
+				}
+			}
+		});
+		uni.request({
+			url: `${helper.requestUrl}discover/hide`,
+			method: 'GET',
+			success: res => {
+				res = helper.null2str(res.data);
+				if (res.status_code == 'ok') {
+					console.log(res.data)
+					this.isShowBox = res.data;
 				}
 			}
 		});
@@ -642,5 +656,8 @@ export default {
 }
 button::after {
 	border: none !important;
+}
+.img{
+	width: 100%;
 }
 </style>

@@ -1,9 +1,14 @@
 <template>
+	
+	
 	<view class="indexCourse">
 		<!-- 视频 -->
-		<view class="video">
+		<view class="video" v-if="isShowBox == 'on'">
 			<image :src="imgUrl + content.theme" mode="" v-if="!isSAutoplay"></image>
 			<video :src="videoUrl" v-if="isSAutoplay" controls="true" :autoplay="isSAutoplay"></video>
+		</view>
+		<view class="video" v-else>
+			<image :src="imgUrl + content.theme" mode=""></image>
 		</view>
 		<view class="course">
 			<view class="head">
@@ -53,7 +58,7 @@
 			</mescroll-body>
 			</view>
 		</view>
-		<view class="buy">
+		<view class="buy" v-if="isShowBox == 'on'">
 			<button class="buyCourse" v-if='buyShow == 0' type="" @tap="goBuy(content.id)">购买完整教程</button>
 			<button class="buyConvert" v-if='buyShow == 0' type="" @tap="convert(content.id)">兑换完整教程</button>
 		</view>
@@ -63,6 +68,9 @@
 		</view>
 		
 	</view>
+	
+	
+	
 </template>
 
 <script>
@@ -96,13 +104,25 @@ export default {
 				},
 				textNoMore: '没有更多数据了'
 			},
-			buyShow: ''
+			buyShow: '',
+			isShowBox: ''
 		};
 	},
 	onLoad(option) {
 		this.imgUrl = helper.imgUrl
 		this.curricula_id = option.id
 		this.getList()
+		uni.request({
+			url: `${helper.requestUrl}discover/hide`,
+			method: 'GET',
+			success: res => {
+				res = helper.null2str(res.data);
+				if (res.status_code == 'ok') {
+					console.log(res.data)
+					this.isShowBox = res.data;
+				}
+			}
+		});
 	},
 	onShow() {
 		

@@ -220,6 +220,8 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
+
 var _helper = _interopRequireDefault(__webpack_require__(/*! ../componets/helper.js */ 12));
 var _mescrollMixins = _interopRequireDefault(__webpack_require__(/*! ../componets/mescroll-uni/mescroll-mixins.js */ 38));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };} //
 //
@@ -308,11 +310,23 @@ var _mescrollMixins = _interopRequireDefault(__webpack_require__(/*! ../componet
 //
 //
 //
+//
+//
 var play = false;var app = getApp();var _default = { mixins: [_mescrollMixins.default], // 使用mixin
-  data: function data() {return { isShow: true, is_like: 0, findId: '', shadeList: [], videoList: {}, time: 0, show_play: false, shade: false, imgUrl: '', totalPage: '', page: '1', text: '', postContent: '', userInfoButtonShow: true, likeNum: '' };}, onLoad: function onLoad(option) {var _this = this;this.imgUrl = this.$helper.imgUrl;this.findId = option.id;this.getVideo(); // this.onGetUserInfo();
-    uni.getSetting({ success: function success(res) {if (res.authSetting['scope.userInfo']) {_this.userInfoButtonShow = false;}} });}, onShareAppMessage: function onShareAppMessage(res) {var _this2 = this;uni.request({ url: "".concat(_helper.default.requestUrl, "discover/sharePlus"), method: 'POST', data: { discover_id: this.findId }, success: function success(data) {res = _helper.default.null2str(res);uni.hideToast();if (data.statusCode === 200) {_this2.videoList.share++;} else {}} });return { title: this.videoList.title, path: "/pages/findDetail?id=".concat(this.findId) };}, methods: { clickVideo: function clickVideo() {this.videoPlay();}, // 用户信息校验
+  data: function data() {return { isShow: true, is_like: 0, findId: '', shadeList: [], videoList: {}, time: 0, show_play: false, shade: false, imgUrl: '', totalPage: '', page: '1', text: '', postContent: '', userInfoButtonShow: true, likeNum: '', isShowBox: '' };}, onLoad: function onLoad(option) {var _this = this;this.imgUrl = this.$helper.imgUrl;this.findId = option.id;this.getVideo(); // this.onGetUserInfo();
+    uni.getSetting({ success: function success(res) {if (res.authSetting['scope.userInfo']) {_this.userInfoButtonShow = false;}} });uni.request({ url: "".concat(_helper.default.requestUrl, "discover/hide"), method: 'GET', success: function success(res) {res = _helper.default.null2str(res.data);if (res.status_code == 'ok') {console.log(res.data);_this.isShowBox = res.data;}} });}, onShareAppMessage: function onShareAppMessage(res) {var _this2 = this;uni.request({ url: "".concat(_helper.default.requestUrl, "discover/sharePlus"), method: 'POST', data: { discover_id: this.findId }, success: function success(data) {res = _helper.default.null2str(res);uni.hideToast();if (data.statusCode === 200) {_this2.videoList.share++;} else {}} });return { title: this.videoList.title, path: "/pages/findDetail?id=".concat(this.findId) };}, methods: { clickVideo: function clickVideo() {this.videoPlay();}, // 用户信息校验
     verificationUserInfo: function verificationUserInfo() {if (!this.userInfo.hasOwnProperty('id')) {uni.showToast({ title: '用户信息加载中...', icon: 'none' });return true;}}, // 提交用户信息
-    onGetUserInfo: function onGetUserInfo(e) {var that = this;if (e.detail.errMsg == 'getUserInfo:ok') {var user = e.detail.userInfo;uni.login({ success: function success(res) {uni.request({ url: "".concat(_helper.default.requestUrl, "auth/login"), method: 'POST', data: { code: res.code, nickname: user.nickName, sex: user.gender, headimgurl: user.avatarUrl, mobile: '' }, success: function success(data) {res = _helper.default.null2str(res);uni.hideToast();if (data.statusCode === 200) {
+    onGetUserInfo: function onGetUserInfo(e) {var that = this;if (e.detail.errMsg == 'getUserInfo:ok') {var user = e.detail.userInfo;uni.login({ success: function success(res) {uni.request({ url: "".concat(_helper.default.requestUrl, "auth/login"), method: 'POST', data: {
+                code: res.code,
+                nickname: user.nickName,
+                sex: user.gender,
+                headimgurl: user.avatarUrl,
+                mobile: '' },
+
+              success: function success(data) {
+                res = _helper.default.null2str(res);
+                uni.hideToast();
+                if (data.statusCode === 200) {
                   that.userInfoButtonShow = false;
                   var token = data.data.token_type + ' ' + data.data.access_token;
                   app.globalData.token = token;

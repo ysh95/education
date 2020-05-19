@@ -57,7 +57,7 @@
 		{
 			"path": "pages/findDetail",
 			"style": {
-				"navigationBarTitleText": "视频详情"
+				"navigationBarTitleText": "详情"
 			}
 		},
 		{
